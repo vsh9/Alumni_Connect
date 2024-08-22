@@ -1,14 +1,16 @@
 from django.contrib import admin
 from django.urls import path
+from Alumni.apis import app
 from Notifications.apis import notify
 from Events.apis import eve
 from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("WhatsApp API")
+    return HttpResponse("Welcome to IISC Alumni Association")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('alumni/', app.urls),
     path('notifications/', notify.urls),
     path('events/',eve.urls),
     path('', home),

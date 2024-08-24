@@ -5,3 +5,4 @@ psycopg2
 psycopg2-binary
 Pillow
 pydantic[email]
+celery

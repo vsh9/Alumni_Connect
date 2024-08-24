@@ -1,8 +1,8 @@
 from http.client import HTTPException
 from ninja import NinjaAPI
-from Alumni.models import Alumni
+from Alumni.models import alumni
 from Events.models import Event
-from .models import NTF
+from .models import Notification
 from .schemas import NTFSchemaIn, NTFSchemaOut
 from django.shortcuts import get_object_or_404
 from typing import List
@@ -11,35 +11,35 @@ notify = NinjaAPI(urls_namespace='otherapi')
 
 @notify.get("/notifications", response=List[NTFSchemaOut])
 def list_notifications(request):
-    return list(NTF.objects.all())
+    return list(Notification.objects.all())
 
 @notify.post("/notifications", response=NTFSchemaOut)
 def create_notification(request, payload: NTFSchemaIn):
     event = Event.objects.get(event_id=payload.event_id)
-    notification = NTF.objects.create(
-        N_id=payload.N_id,
+    notification = Notification.objects.create(
+        n_id=payload.n_id,
         event_id=event, 
-        N_type=payload.N_type,
-        N_content=payload.N_content,
-        Priority=payload.Priority
+        n_type=payload.n_type,
+        n_content=payload.n_content,
+        priority=payload.priority
     )
 
     return {
-        "N_id": notification.N_id,
+        "n_id": notification.n_id,
         "event_id": notification.event_id.event_id,
-        "N_type": notification.N_type,
-        "N_content": notification.N_content,
-        "Priority": notification.Priority,
+        "n_type": notification.n_type,
+        "n_content": notification.n_content,
+        "priority": notification.priority,
     }
 
 @notify.get("/notifications/{notification_id}", response=NTFSchemaOut)
 def get_notifications(request, notification_id: int):
-    notification = NTF.objects.get(pk=notification_id)
+    notification = Notification.objects.get(pk=notification_id)
     return notification
 
 @notify.put("/notifications/{notification_id}", response=NTFSchemaOut)
 def update_notifications(request, notification_id: int, payload: NTFSchemaIn):
-    notification = NTF.objects.get(pk=notification_id)
+    notification = Notification.objects.get(pk=notification_id)
     event =  Event.objects.get(event_id=payload.event_id)
     payload.event_id = event
     for attr, value in payload.dict().items():
@@ -47,15 +47,15 @@ def update_notifications(request, notification_id: int, payload: NTFSchemaIn):
     notification.save()
     
     return {
-        "N_id": notification.N_id,
-        "Event_id": event.event_id,
-        "N_type": notification.N_type,
-        "N_content": notification.N_content,
-        "Priority": notification.Priority,
+        "n_id": notification.n_id,
+        "event_id": event.event_id,
+        "n_type": notification.n_type,
+        "n_content": notification.n_content,
+        "priority": notification.priority,
     }
 
 @notify.delete("/notifications/{notification_id}", response=dict)
 def delete_notifications(request, notification_id: int):
-    notification = NTF.objects.get(pk=notification_id)
+    notification = Notification.objects.get(pk=notification_id)
     notification.delete()
     return {"success": True}

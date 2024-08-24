@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Alumni',
     'Events',
     'Notifications',
+    'django_celery_results'
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+broker_connection_retry_on_startup = True
+accept_content = ['application/json']
+result_serializer = 'json'
+task_serializer = 'json'
+timezone = 'Asia/Kolkata'
+
+

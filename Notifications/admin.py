@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .models import NTF
+from .models import Notification
 
-@admin.register(NTF)
+@admin.register(Notification)
 class NTFAdmin(admin.ModelAdmin):
-    list_display = ['N_id', 'event_id', 'N_type', 'N_content', 'Priority']
-    list_filter = ['N_type', 'event_id', 'Priority']
-    search_fields = ['N_id', 'event_id']
+    list_display = ['n_id', 'event_id', 'n_type', 'n_content', 'priority']
+    list_filter = ['n_type', 'event_id', 'priority']
+    search_fields = ['n_id', 'event_id']
 

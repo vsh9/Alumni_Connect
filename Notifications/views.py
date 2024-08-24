@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+from .services import my_task
+
+def test_fnc(request):
+    my_task()
+    return HttpResponse("Done")

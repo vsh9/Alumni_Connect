@@ -1,21 +1,20 @@
+"""Alumni models"""
 from django.db import models
 
-class Alumni(models.Model):
-    Alumni_ID = models.AutoField(primary_key=True)
-    First_Name = models.CharField(max_length=100)
-    Last_Name = models.CharField(max_length=100)
-    Email = models.EmailField(unique=True)
-    Phone_Number = models.CharField(max_length=15, blank=True, null=True)
-    Address = models.TextField(blank=True, null=True)
-    Graduation_Year = models.IntegerField()
-    Degree = models.CharField(max_length=100)
-    Major = models.CharField(max_length=100)
-    Occupation = models.CharField(max_length=100)
-    Company = models.CharField(max_length=100, blank=True, null=True)
-    LinkedIn_Profile = models.URLField(blank=True, null=True)
-    Profile_Picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)
-    Bio = models.TextField(blank=True, null=True)
-    notification_preferences = models.JSONField(default=dict, blank=True, null=True)
+class alumni(models.Model):
+    alumni_ID = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    phone_number = models.IntegerField(max_length=15, blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    graduation_year = models.IntegerField()
+    degree = models.CharField(max_length=100)
+    major = models.CharField(max_length=100)
+    occupation = models.CharField(max_length=100)
+    company = models.CharField(max_length=100, blank=True, null=True)
+    linkedIn_profile = models.URLField(blank=True, null=True)
+    bio = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.First_Name} {self.Last_Name}"
+        return f"{self.first_name} {self.last_name}"

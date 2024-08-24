@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Alumni
+from .models import alumni
 
-@admin.register(Alumni)
+@admin.register(alumni)
 class AlumniAdmin(admin.ModelAdmin):
-    list_display = ('Alumni_ID', 'First_Name', 'Last_Name', 'Email', 'Graduation_Year', 'Degree', 'Major', 'Occupation')
-    search_fields = ('First_Name', 'Last_Name', 'Email', 'Graduation_Year', 'Degree', 'Major', 'Occupation')
-    list_filter = ('Graduation_Year', 'Degree', 'Major')
+    list_display = ('alumni_ID', 'first_name', 'last_name', 'email', 'graduation_year', 'degree', 'major', 'occupation')
+    search_fields = ('first_name', 'last_name', 'email', 'graduation_year', 'degree', 'major', 'occupation')
+    list_filter = ('graduation_year', 'degree', 'major')

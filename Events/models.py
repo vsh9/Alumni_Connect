@@ -1,5 +1,5 @@
 from django.db import models
-from Alumni.models import Alumni
+from Alumni.models import alumni
 
 
 class Event(models.Model):
@@ -23,7 +23,7 @@ class Event(models.Model):
     
 class EventAlumni(models.Model):
     event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
-    alumni_id = models.ForeignKey(Alumni, on_delete=models.CASCADE)
+    alumni_id = models.ForeignKey(alumni, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Alumni {self.alumni_id.First_Name} attends Event {self.event_id.event_name}"

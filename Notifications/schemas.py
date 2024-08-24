@@ -1,17 +1,16 @@
 from ninja import Schema
-from pydantic import Field, EmailStr
-from typing import Optional, Dict
-from Events.schemas import EventSchema 
+# from pydantic import Field, EmailStr
+from typing import Optional#, Dict
 
 
 class NTFSchemaIn(Schema):
-    N_id: int
+    n_id: int
     event_id: int
-    N_type: str
-    N_content: str
-    Priority: Optional[str]
+    n_type: str
+    n_content: str
+    priority: Optional[str]
 
 class NTFSchemaOut(Schema):
-    N_id: int
-    N_type: str
-    N_content: str
+    n_id: int
+    n_type: str
+    n_content: str

@@ -2,11 +2,10 @@ from ninja import Schema
 from datetime import date, time, datetime
 from typing import Optional
 
-class EventSchema(Schema):
+class EventSchemaIn(Schema):
     event_id: int 
     event_name: str
-    event_date: date
-    event_time: time 
+    event_date_time: datetime
     location: str
     description: str
     event_type: str
@@ -16,6 +15,13 @@ class EventSchema(Schema):
     speaker_details: str = None
     event_status: str
     feedback_available: bool = None
+
+class EventSchemaOut(Schema):
+    event_id: int
+    event_name: str
+    event_date_time: datetime
+    location: str
+    event_type: str
 
 class EveAl(Schema):
     event_id: int

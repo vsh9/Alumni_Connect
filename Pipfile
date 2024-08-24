@@ -10,6 +10,9 @@ pydantic = {extras = ["email"], version = "*"}
 psycopg2-binary = "*"
 psycopg2 = "*"
 psycopg = "*"
+celery = "*"
+redis = "*"
+django-celery-results = "*"
 
 [dev-packages]
 

@@ -6,26 +6,32 @@ from Notifications.models import Notification
 
 router = NinjaAPI(urls_namespace='mlapi')
 
-@router.post('/ml/', response={201: MLReadSchema})
+#To create message log
+@router.post('/ml/', response=MLReadSchema)
 def create_ml(request, data: MLCreateSchema):
-    ntf = get_object_or_404(Notification,n_id=data.n_id)
+    ntf = Notification.objects.create(n_id=data.n_id)
     ml = ML.objects.create(
         n_id=ntf,
-        delivery_status = data.delivery_status,
-        response_status = data.response_status
+        alumni_id=data.alumni_id,
+        message = data.message,
+        sent_at = data.sent_at,
+        response=data.response_status
     )
-    return 201, ml
-
-@router.get('/ml/{ml_id}', response=MLReadSchema)
-def get_ml(request, ml_id: int):
-    ml = get_object_or_404(ML, ml_id=ml_id)
     return ml
 
+#To get message log
+@router.get('/ml/{ml_id}', response=MLReadSchema)
+def get_ml(request, ml_id: int):
+    ml = ML.objects.get(ML, ml_id=ml_id)
+    return ml
+
+#To list all the the message logs
 @router.get('/ml/', response=list[MLReadSchema])
 def list_ml(request):
     ml_list = ML.objects.all()
     return ml_list
 
+#To update the message log
 @router.put('/ml/{ml_id}', response=MLReadSchema)
 def update_ml(request, ml_id: int, data: MLCreateSchema):
     ml = get_object_or_404(ML, ml_id=ml_id)
@@ -35,6 +41,7 @@ def update_ml(request, ml_id: int, data: MLCreateSchema):
     ml.save()
     return ml
 
+#To delete the message log
 @router.delete('/ml/{ml_id}', response={204: None})
 def delete_ml(request, ml_id: int):
     ml = get_object_or_404(ML, ml_id=ml_id)

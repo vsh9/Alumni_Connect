@@ -1,0 +1,7 @@
+django
+django-ninja
+psycopg
+psycopg2
+psycopg2-binary
+Pillow
+pydantic[email]

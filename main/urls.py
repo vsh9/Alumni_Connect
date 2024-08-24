@@ -1,29 +1,11 @@
-"""
-URL configuration for main project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from ninja import NinjaAPI
 from Alumni.apis import app
+from Notifications.apis import notify
+from Events.apis import eve
 from MessageLog.api import router as ml_router
 from django.http import HttpResponse
 
-api = NinjaAPI()
-
-#Message displayed as soon as the project is run
 def home(request):
     return HttpResponse("Welcome to IISC Alumni Association")
 
@@ -31,6 +13,8 @@ api.add_router("/ml/", ml_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', app.urls),
+    path('alumni/', app.urls),
+    path('notifications/', notify.urls),
+    path('events/',eve.urls),
     path('', home),
 ]

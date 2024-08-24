@@ -7,7 +7,7 @@ class Notification(models.Model):
     event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
     n_type = models.CharField(max_length=25)
     n_content = models.TextField()
-    priority = models.CharField(max_length=10, default='Normal') #give choices for it like 'critical' ,'normal' etc etc
+    priority = models.CharField(max_length=10, choices=[('Normal','normal'),('Critical','critical')]) 
     
     def __str__(self):
         return f"Notification {self.n_id}"

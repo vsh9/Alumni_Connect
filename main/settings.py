@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'Alumni',
     'Events',
     'Notifications',
-    'django_celery_results'
+    'django_celery_results',
+    'MessageLog',
 ]
 
 MIDDLEWARE = [

@@ -1,13 +1,19 @@
-from ninja import Router
+from ninja import NinjaAPI
 from .models import ML
 from django.shortcuts import get_object_or_404
 from .schemas import MLCreateSchema, MLReadSchema
+from Notifications.models import Notification
 
-router = Router()
+router = NinjaAPI(urls_namespace='mlapi')
 
 @router.post('/ml/', response={201: MLReadSchema})
 def create_ml(request, data: MLCreateSchema):
-    ml = ML.objects.create(**data.dict())
+    ntf = get_object_or_404(Notification,n_id=data.n_id)
+    ml = ML.objects.create(
+        n_id=ntf,
+        delivery_status = data.delivery_status,
+        response_status = data.response_status
+    )
     return 201, ml
 
 @router.get('/ml/{ml_id}', response=MLReadSchema)
@@ -25,6 +31,7 @@ def update_ml(request, ml_id: int, data: MLCreateSchema):
     ml = get_object_or_404(ML, ml_id=ml_id)
     for attr, value in data.dict().items():
         setattr(ml, attr, value)
+    setattr(ml,'ml_id',ml_id)
     ml.save()
     return ml
 

@@ -10,7 +10,7 @@ from Notifications.views import test_fnc
 def home(request):
     return HttpResponse("Welcome to IISC Alumni Association")
 
-api.add_router("/ml/", ml_router)
+# api.add_router("/ml/", ml_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,5 +18,6 @@ urlpatterns = [
     path('notifications/', notify.urls),
     path('events/',eve.urls),
     path('', home),
+    path('ml/',ml_router.urls),
     path('test/',test_fnc),
 ]

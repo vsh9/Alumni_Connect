@@ -34,8 +34,15 @@ def update_event(request, event_id: int, payload: EventSchemaIn):
     event = Event.objects.get(event_id=event_id)
     for attr, value in payload.dict().items():
         setattr(event, attr, value)
+    setattr(event,'event_id',event_id)
     event.save()
-    return event
+    return {
+        "event_id": event.event_id,
+        "event_name": event.event_name,
+        "event_date_time": event.event_date_time.isoformat(),
+        "location": event.location,
+        "event_type": event.event_type
+    }
 
 @eve.delete("/events/{event_id}/")
 def delete_event(request, event_id: int):

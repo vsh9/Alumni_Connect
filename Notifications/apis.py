@@ -44,6 +44,7 @@ def update_notifications(request, notification_id: int, payload: NTFSchemaIn):
     payload.event_id = event
     for attr, value in payload.dict().items():
         setattr(notification, attr, value)
+    setattr(notification,'n_id',notification_id)
     notification.save()
     
     return {

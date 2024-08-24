@@ -24,6 +24,7 @@ def update_alumni(request, alumni_id: int, payload: AlumniSchema):
     al = alumni.objects.get(pk=alumni_id)
     for attr, value in payload.dict().items():
         setattr(al, attr, value)
+    setattr(al,'alumni_ID',alumni_id)
     al.save()
     return al
 

@@ -3,11 +3,11 @@ from pydantic import Field, EmailStr
 from typing import Optional, Dict
 
 class AlumniSchema(Schema):
-    Alumni_ID: Optional[int] = None
+    Alumni_ID: int
     First_Name: str
     Last_Name: str
     Email: EmailStr
-    Phone_Number: Optional[str] = None
+    Phone_Number: int
     Address: Optional[str] = None
     Graduation_Year: int
     Degree: str
@@ -15,6 +15,5 @@ class AlumniSchema(Schema):
     Occupation: str
     Company: Optional[str] = None
     LinkedIn_Profile: Optional[str] = None
-    Profile_Picture: Optional[str] = None
     Bio: Optional[str] = None
-    notification_preferences: Optional[Dict[str, bool]] = Field(default_factory=dict)
+    

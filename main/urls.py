@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from ninja import NinjaAPI
 from Alumni.apis import app
+from MessageLog.api import router as ml_router
 from django.http import HttpResponse
 
 api = NinjaAPI()
@@ -25,6 +26,8 @@ api = NinjaAPI()
 #Message displayed as soon as the project is run
 def home(request):
     return HttpResponse("Welcome to IISC Alumni Association")
+
+api.add_router("/ml/", ml_router)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

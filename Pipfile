@@ -13,6 +13,7 @@ psycopg = "*"
 celery = "*"
 redis = "*"
 django-celery-results = "*"
+twilio = "*"
 
 [dev-packages]
 

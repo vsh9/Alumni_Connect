@@ -140,7 +140,4 @@ task_serializer = 'json'
 timezone = 'Asia/Kolkata'
 
 
-#Twilio
-TWILIO_ACCOUNT_SID = "ACd29165bdc475d861f6f9d42e7accf021"
-TWILIO_AUTH_TOKEN = "4a55db403b241dc3bb66c5d43f8fadd3"
-TWILIO_WHATSAPP_NUMBER = 14155238886
+#Mention Twilio Credentials

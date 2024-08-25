@@ -6,7 +6,7 @@ class alumni(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    phone_number = models.IntegerField(max_length=10,unique=True)
+    phone_number = models.BigIntegerField(unique=True)
     address = models.TextField(blank=True, null=True)
     graduation_year = models.IntegerField()
     degree = models.CharField(max_length=100)

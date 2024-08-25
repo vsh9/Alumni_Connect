@@ -5,13 +5,12 @@ from typing import Optional
 class EventSchemaIn(Schema):
     event_id: int 
     event_name: str
-    event_date_time: datetime
+    event_date: date
     location: str
     description: str
     event_type: str
     registration_deadline: date  
     rsvp_deadline: date 
-    # rsvp_status: bool 
     speaker_details: str = None
     event_status: str
     feedback_available: bool = None
@@ -19,7 +18,7 @@ class EventSchemaIn(Schema):
 class EventSchemaOut(Schema):
     event_id: int
     event_name: str
-    event_date_time: datetime
+    event_date: date
     location: str
     event_type: str
 

@@ -22,7 +22,6 @@ def load_json_data(filename='sample_event_data.json'):
         )
         event_objects.append(event)
         
-    # Insert all event objects at once
     Event.objects.bulk_create(event_objects)
 
 if __name__ == "__main__":

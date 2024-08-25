@@ -19,12 +19,10 @@ def load_json_data(filename='sample_alumni_data.json', batch_size=500):
         )
         alumni_objects.append(al)
         
-        # Insert records in batches
         if len(alumni_objects) >= batch_size:
             alumni.objects.bulk_create(alumni_objects)
-            alumni_objects = []  # Clear the list after inserting
+            alumni_objects = []  
 
-    # Insert any remaining objects that didn't make up a full batch
     if alumni_objects:
         alumni.objects.bulk_create(alumni_objects)
 

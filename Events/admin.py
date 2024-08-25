@@ -3,7 +3,7 @@ from .models import Event
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('event_id','event_name', 'event_date_time', 'location', 'event_type', 'registration_deadline', 'event_status', 'feedback_available')
+    list_display = ('event_id','event_name', 'event_date', 'location', 'event_type', 'registration_deadline', 'event_status', 'feedback_available')
     search_fields = ('event_id','event_name', 'location','event_type', 'event_status')
-    list_filter = ('event_id','event_type', 'event_status', 'event_date_time')
-    ordering = ('event_id','event_date_time')
+    list_filter = ('event_id','event_type', 'event_status', 'event_date')
+    ordering = ('event_id','event_date')

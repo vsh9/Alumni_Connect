@@ -1,13 +1,14 @@
 from http.client import HTTPException
-from ninja import NinjaAPI
+from ninja import Router
 from Alumni.models import alumni
 from Events.models import Event
 from .models import Notification
 from .schemas import NTFSchemaIn, NTFSchemaOut
 from django.shortcuts import get_object_or_404
 from typing import List
+from .views import send_message_view,send_update_view
 
-notify = NinjaAPI(urls_namespace='otherapi')
+notify = Router()
 
 @notify.get("/notifications", response=List[NTFSchemaOut])
 def list_notifications(request):
@@ -23,6 +24,12 @@ def create_notification(request, payload: NTFSchemaIn):
         n_content=payload.n_content,
         priority=payload.priority
     )
+
+    if notification.n_type == 'General':
+        send_message_view(data=notification)
+    elif notification.n_type == 'Updates':
+        send_update_view(event_id=event.event_id)
+    
 
     return {
         "n_id": notification.n_id,

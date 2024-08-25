@@ -1,6 +1,5 @@
 from ninja import Schema
-# from pydantic import Field, EmailStr
-from typing import Optional#, Dict
+from typing import Optional
 
 
 class NTFSchemaIn(Schema):

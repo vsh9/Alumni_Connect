@@ -1,12 +1,11 @@
 from typing import List
-from ninja import NinjaAPI
+from ninja import Router
 from .schemas import EventSchemaIn, EventSchemaOut
 from .models import Event
-#import json
 
 
 
-eve = NinjaAPI(urls_namespace='eventapi')
+eve = Router()
 
 @eve.post("/events/", response=EventSchemaOut)
 def create_event(request, payload: EventSchemaIn):

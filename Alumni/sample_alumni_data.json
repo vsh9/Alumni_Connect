@@ -1,6 +1,6 @@
 [
     {
-        "alumni_id": 1,
+        "alumni_ID": 1,
         "first_name": "Alice",
         "last_name": "Johnson",
         "email": "alice.johnson@example.com",
@@ -13,7 +13,7 @@
         "major": "Computer Science"
     },
     {
-        "alumni_id": 2,
+        "alumni_ID": 2,
         "first_name": "Bob",
         "last_name": "Smith",
         "email": "bob.smith@example.com",
@@ -26,7 +26,7 @@
         "major": "Civil Engineering"
     },
     {
-        "alumni_id": 3,
+        "alumni_ID": 3,
         "first_name": "Carol",
         "last_name": "White",
         "email": "carol.white@example.com",
@@ -39,7 +39,7 @@
         "major": "Education"
     },
     {
-        "alumni_id": 4,
+        "alumni_ID": 4,
         "first_name": "David",
         "last_name": "Brown",
         "email": "david.brown@example.com",

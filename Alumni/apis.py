@@ -1,9 +1,9 @@
-from ninja import NinjaAPI
+from ninja import Router
 from .models import alumni
 from .schema import AlumniSchema
 from typing import List
 
-app = NinjaAPI()
+app = Router()
  
 @app.get("/alumni", response=List[AlumniSchema])
 def list_alumni(request):

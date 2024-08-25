@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -131,6 +131,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#Celerey
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 broker_connection_retry_on_startup = True
 accept_content = ['application/json']
@@ -139,3 +140,7 @@ task_serializer = 'json'
 timezone = 'Asia/Kolkata'
 
 
+#Twilio
+TWILIO_ACCOUNT_SID = "ACd29165bdc475d861f6f9d42e7accf021"
+TWILIO_AUTH_TOKEN = "4a55db403b241dc3bb66c5d43f8fadd3"
+TWILIO_WHATSAPP_NUMBER = 14155238886

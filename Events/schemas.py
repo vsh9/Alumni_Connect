@@ -11,7 +11,7 @@ class EventSchemaIn(Schema):
     event_type: str
     registration_deadline: date  
     rsvp_deadline: date 
-    rsvp_status: bool 
+    # rsvp_status: bool 
     speaker_details: str = None
     event_status: str
     feedback_available: bool = None

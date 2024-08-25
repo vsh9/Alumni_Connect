@@ -9,6 +9,8 @@
 from twilio.rest import Client
 from django.conf import settings
 from main import settings
+from Events.models import EventAlumni,Event
+from Alumni.models import alumni
 import json
 
 class TwilioClient:
@@ -42,3 +44,28 @@ class TwilioClient:
             {'type': 'reply', 'reply': {'id': 'rsvp', 'title': 'RSVP'}}
         ]
         return self.send_whatsapp_message(to, 'Choose an option:')
+    
+#Send general message to user
+    def send_general_message(message):
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        alumni_list = alumni.objects.all()
+        
+        for al in alumni_list:
+            client.messages.create(
+                body=message,
+                from_=f'whatsapp:+{settings.TWILIO_PHONE_NUMBER}',
+                to=f'whatsapp:+{al.phone_number}'
+            )
+
+#Send message to user who has accepted RSVP for an event
+    def send_rsvp_updates(eve: Event, update_message):
+        client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+        EA=EventAlumni.objects.all().filter(event_id=eve.event_id)
+
+        for rsvp in EA:
+            a = rsvp.alumni_id
+            client.messages.create(
+                body=f"Update for {eve.event_name}: {update_message}",
+                from_=f'whatsapp:+{settings.TWILIO_PHONE_NUMBER}',
+                to=f'whatsapp:+{a.phone_number}'
+            )

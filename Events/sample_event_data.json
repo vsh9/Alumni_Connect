@@ -1,0 +1,28 @@
+[
+    {
+        "event_id": 1,
+        "event_name": "Annual Alumni Meet",
+        "event_date": "2024-10-15",
+        "location": "Main Auditorium",
+        "description": "The Annual Alumni Meet for all batches.",
+        "event_type": "Reunion",
+        "registration_deadline": "2024-10-10",
+        "rsvp_deadline": "2024-10-08",
+        "speaker_details": "Guest Speaker: Dr. Jane Doe",
+        "event_status": "Scheduled",
+        "feedback_available": true
+    },
+    {
+        "event_id": 10,
+        "event_name": "Tech Conference 2024",
+        "event_date": "2024-11-20",
+        "location": "Tech Park, Conference Hall",
+        "description": "A conference on emerging technologies.",
+        "event_type": "Conference",
+        "registration_deadline": "2024-11-15",
+        "rsvp_deadline": "2024-11-12",
+        "speaker_details": "Keynote: Elon Musk",
+        "event_status": "Scheduled",
+        "feedback_available": false
+    }
+]

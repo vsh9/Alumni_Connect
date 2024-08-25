@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-ninja = "*"
+pydantic = {extras = ["email"], version = "*"}
+psycopg2-binary = "*"
+psycopg2 = "*"
+psycopg = "*"
+celery = "*"
+redis = "*"
+django-celery-results = "*"
+twilio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

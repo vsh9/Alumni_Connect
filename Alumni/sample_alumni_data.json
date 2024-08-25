@@ -1,0 +1,45 @@
+[
+    {
+        "first_name": "Alice",
+        "last_name": "Johnson",
+        "email": "alice.johnson@example.com",
+        "phone_number": "5551234",
+        "address": "789 Elm St, Springfield, USA",
+        "graduation_year": 1990,
+        "occupation": "Software Developer",
+        "company": "Infosys"
+    },
+
+    {
+        "name": "Bob",
+        "last_name":"Smith",
+        "email": "bob.smith@example.com",
+        "phone_number": "5555678",
+        "address": "456 Oak St, Metropolis, USA",
+        "graduation_year": 1985,
+        "occupation": "Civil Engineer",
+        "company": "CISTA CONSULTENT AND CONSTRUCTION"
+    },
+
+    {
+        "name": "Carol",
+        "last_name":"White",
+        "email": "carol.white@example.com",
+        "phone_number": "5557890",
+        "address": "123 Pine St, Smalltown, USA",
+        "graduation_year": 2000,
+        "occupation": "Teacher",
+        "company": "Smalltown School District"
+    },
+
+    {
+        "name": "David",
+        "last_name":"Brown",
+        "email": "david.brown@example.com",
+        "phone_number": "5552345",
+        "address": "321 Maple St, Rivertown, USA",
+        "graduation_year": 2010,
+        "occupation": "Marketing Manager",
+        "company": "RiverTown Marketing"
+    }
+]

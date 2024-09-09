@@ -13,7 +13,7 @@ def create_event(request, payload: EventSchemaIn):
     return {
         "event_id": event.event_id,
         "event_name": event.event_name,
-        "event_date_time": event.event_date_time.isoformat(),
+        "event_date": event.event_date.isoformat(),
         "location": event.location,
         "event_type": event.event_type
     }

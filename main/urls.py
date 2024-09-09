@@ -5,7 +5,7 @@ from Notifications.apis import notify
 from Events.apis import eve
 from ninja import NinjaAPI
 from django.http import HttpResponse
-from Notifications.views import send_message_view, send_update_view
+from Notifications.views import bot
 
 
 api = NinjaAPI()
@@ -18,8 +18,7 @@ api.add_router('events/',eve)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
-    path('send-general-message/', send_message_view, name='send_general_message'),
-    path('send-update/<int:event_id>/', send_update_view, name='send_update'),
-    path('api/',api.urls)
+    path('home/', home),
+    path('api/',api.urls),
+    path('',bot)
 ]

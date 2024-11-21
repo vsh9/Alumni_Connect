@@ -1,1 +1,1 @@
-# IISC_Alumni_Association
+# Alumni_Association
